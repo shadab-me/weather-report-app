@@ -1,0 +1,74 @@
+$primary-color: #b2b2b2; $dark-color: #00203fff;
+body{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#input{
+    width: 80%;
+    border-radius: 10px;
+    padding: 20px;
+    outline: none;
+    border: none;
+    color: $dark-color;
+    background-color:$primary-color; 
+    margin: 0 auto;
+    display: flex;
+}
+#submit{
+    color:$primary-color;
+    background-color: $dark-color;
+    color: $primary-color;
+    display: flex;
+    margin: 0 auto;
+    border-radius:20px;
+    border: none;
+    outline: none;
+    font-weight: 700;
+    height: 40px;
+    width: 180px;
+    line-height: 40px;
+    text-transform: capitalize;
+    margin-top: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+.card{
+    background-color: #f2f2f2;
+    color: darkblue;
+    border-radius: 5px;
+    border: 1px 1px 1px 1px rgba(0, 0, 0, .2);
+    height: 360px;
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top: 20px;
+    h1{
+        color: $dark-color;
+        text-align: center;
+        transition: all 2s ease-in-out;
+    }
+    .container{
+        display: flex;
+        justify-content: space-between;
+    }
+    .sec{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-content: center;
+        margin: 10px;
+        color: $dark-color;
+
+        
+        #temp{
+  
+        }
+    }
+}
+
+
+
+
+
+
+
+ 
