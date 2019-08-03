@@ -21,7 +21,7 @@ search.addEventListener('click', (e) => {
     console.log(city);
     if(city){
    const apikey = "8e4bcc04c2bc500c41a818e2f18046e5";
-   const url = `http://api.openweathermap.org/data/2.5/weather?q=${city},india&APPID=${apikey}`;
+   const url = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${city},india&APPID=${apikey}`;
    const getData = async () => {
     const response = await fetch(url);
     const jsonresponse = await response.json();
