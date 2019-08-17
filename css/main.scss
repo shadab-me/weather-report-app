@@ -14,11 +14,8 @@ body{
     display: flex;
 }
 #submit{
-    color:$primary-color;
     background-color: $dark-color;
     color: $primary-color;
-    display: flex;
-    margin: 0 auto;
     border-radius:20px;
     border: none;
     outline: none;
@@ -30,6 +27,12 @@ body{
     margin-top: 20px;
     text-align: center;
     cursor: pointer;
+}
+.submit {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
 }
 .card{
     background-color: #f2f2f2;

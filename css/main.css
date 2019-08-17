@@ -17,13 +17,8 @@ body {
 }
 
 #submit {
-  color: #b2b2b2;
   background-color: #00203fff;
   color: #b2b2b2;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 0 auto;
   border-radius: 20px;
   border: none;
   outline: none;
@@ -35,6 +30,16 @@ body {
   margin-top: 20px;
   text-align: center;
   cursor: pointer;
+}
+
+.submit {
+  width: 80%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .card {

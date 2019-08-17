@@ -21,14 +21,14 @@ search.addEventListener('click', (e) => {
     console.log(city);
     if(city){
    const apikey = "8e4bcc04c2bc500c41a818e2f18046e5";
-   const url = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${city},india&APPID=${apikey}`;
+   const url = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${city},india&APPID=${apikey}&units=metric`;
    const getData = async () => {
     const response = await fetch(url);
     const jsonresponse = await response.json();
     console.log(jsonresponse);
     const nameofCity  =`<h1>${jsonresponse.name}</h1>`;
     console.log(jsonresponse.main.temp.value);
-    const temp = `<h3> Current Temp: ${jsonresponse.main.temp}</h1>`;
+    const temp = `<h3> Current Temp: ${jsonresponse.main.temp} </h1>`;
     const tempMax =`<h3>  Temp-max: ${jsonresponse.main.temp_max}</h1>`;
     const tempMin =`<h3>  Temp-min: ${jsonresponse.main.temp_min}</h1>`;
     const des = `<h3> Weather Description: ${jsonresponse.weather[0].description}</h3>`;
@@ -41,7 +41,6 @@ search.addEventListener('click', (e) => {
     render(des, '#des');
     render(wind, '#wind');
     render(windD, "#windD");
-    
    }
    
 
@@ -57,7 +56,3 @@ var render = function (template, selector) {
 	if (!node) return;
 	node.innerHTML = template;
 };
-
-var cal = function(k){
-    return k - 273;
-}
