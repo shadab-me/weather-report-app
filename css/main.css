@@ -130,4 +130,8 @@ p{
 #des{
   text-transform: capitalize;
 }
+.extra{
+  font-weight: 100;
+  text-align: center;
+}
 /*# sourceMappingURL=main.css.map */

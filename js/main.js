@@ -23,8 +23,9 @@ function CreateUI(jsonResponse){
     const tempMax = `<p>  Temp-max: ${jsonResponse.main.temp_max}</p>`;
     const tempMin = `<p>  Temp-min: ${jsonResponse.main.temp_min}</p>`;
     const des = `<p class = 'text-muted'>${jsonResponse.weather[0].description}</p>`;
-    const wind = `<p>${jsonResponse.wind.speed} </p>`;
-    const windD = `<p>${jsonResponse.wind.deg}</p>`;
+    const wind = `<h3>${jsonResponse.wind.speed} kh/h </h3>`;
+    const humidity = `<h3>${jsonResponse.main.humidity} kh/h </h3>`;
+    const pressure = `<h3>${jsonResponse.main.pressure} pa </h3>`;
     const currentTime = `<p class = 'text-muted'> last updated on ${new Date().toLocaleString()}</p>`
     render(nameOfCity, '#cityName');
     render(temp, '#temp');
@@ -32,7 +33,8 @@ function CreateUI(jsonResponse){
     render(tempMin, '#temp-min');
     render(des, '#des');
     render(wind, '#wind');
-    render(windD, "#windD");
+     render(humidity, "#humidity")
+    render(pressure, '#pressure')
     render(currentTime, "#current-time");
 }
 

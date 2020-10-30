@@ -6,7 +6,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Api Practice</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100&display=swap"
         rel="stylesheet">
 
@@ -37,36 +37,34 @@
             </div>
         </div>
     </header>
-    
     <div class="container">
         <div class="card p-4">
-        <div id="cityName" class="mb-2"></div>
-         <p id="current-time" class="mb-3"></p>
-         <div id = "temp"></div>
-         <div id = 'des'></div>
-        <div class="row">
+            <div id="cityName" class="mb-2"></div>
+            <p id="current-time" class="mb-3"></p>
+            <div id="temp"></div>
+            <div id='des'></div>
+            <div class="extra">
+            <div class="row">
+                <div class="col-md-4 mt-5">
+                    <h4 class="p-2">Wind</h4>
+                    <div id='wind'>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-5">
+                    <h4 class="p-2">Humidity</h4>
+                    <div id='humidity'></div>
+                </div>
+                <div class="col-md-4 mt-5">
+                    <h4 class="p-2">Pressure</h4>
+                    <div id='pressure'></div>
+                </div>
+            </div>
 
-            <div class="col-md-3 mt-5">
-          <div id = 'wind'>
-           </div>
-   <p></p>
             </div>
-            <div class="col-md-3">
-
-            </div>
-            <div class="col-md-3">
-                
-            </div>
-            <div class="col-md-3 mt-5">
-           <div id = 'windD'></div>
-           <p>Deg</p>
-            </div>
-           
-        </div>
         </div>
     </div>
 
-
+</div>
     <script src='js/main.js'></script>
 
 </body>
