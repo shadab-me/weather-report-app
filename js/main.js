@@ -1,3 +1,4 @@
+ 
 /*window.addEventListener('load',() =>{
 let long;
 let lat;
@@ -13,46 +14,56 @@ if(navigator.geolocation){
 
 })*/
 
-const rawcity = document.querySelector('#input');
+const rawCity = document.querySelector('#input');
 const search = document.querySelector('#submit');
-search.addEventListener('click', (e) => {
-    e.preventDefault();
-    const city = rawcity.value;
-    console.log(city);
-    if(city){
-   const apikey = "8e4bcc04c2bc500c41a818e2f18046e5";
-   const url = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${city},india&APPID=${apikey}&units=metric`;
-   const getData = async () => {
-    const response = await fetch(url);
-    const jsonresponse = await response.json();
-    console.log(jsonresponse);
-    const nameofCity  =`<h1>${jsonresponse.name}</h1>`;
-    console.log(jsonresponse.main.temp.value);
-    const temp = `<h3> Current Temp: ${jsonresponse.main.temp} </h1>`;
-    const tempMax =`<h3>  Temp-max: ${jsonresponse.main.temp_max}</h1>`;
-    const tempMin =`<h3>  Temp-min: ${jsonresponse.main.temp_min}</h1>`;
-    const des = `<h3> Weather Description: ${jsonresponse.weather[0].description}</h3>`;
-    const wind = `<h3> Weather Wind Speed: ${jsonresponse.wind.speed} </h3>`;
-    const windD = `<h3> Weather Wind Speed Degree: ${jsonresponse.wind.deg}</h3>`;
-    render(nameofCity, '#cityName');
+let city = rawCity.value;
+
+
+
+function CreateUI(jsonResponse){
+    c
+    const nameOfCity = `<h1>${jsonResponse.name}</h1>`;
+    console.log(jsonResponse.main.temp.value);
+    const temp = `<p> Current Temp: ${jsonResponse.main.temp} </p>`;
+    const tempMax = `<p>  Temp-max: ${jsonResponse.main.temp_max}</p>`;
+    const tempMin = `<p>  Temp-min: ${jsonResponse.main.temp_min}</p>`;
+    const des = `<p> Weather Description: ${jsonResponse.weather[0].description}</p>`;
+    const wind = `<p> Weather Wind Speed: ${jsonResponse.wind.speed} </p>`;
+    const windD = `<p> Weather Wind Speed Degree: ${jsonResponse.wind.deg}</p>`;
+    render(nameOfCity, '#cityName');
     render(temp, '#temp');
     render(tempMax, '#temp-max');
     render(tempMin, '#temp-min');
     render(des, '#des');
     render(wind, '#wind');
     render(windD, "#windD");
-   }
-   
+}
+
+search.addEventListener('click', (e) => {
+ e.preventDefault();
+    getData(city)
+
+});
+
+rawCity.addEventListener('keypress', (e) => {
+ if(e == 'Enter'){
+     getData(city)
+ }
+})
+const getData = async (city = 'Delhi') => {
+    const apiKey = "8e4bcc04c2bc500c41a818e2f18046e5";
+     const url = `http://api.openweathermap.org/data/2.5/weather?q=${city},india&APPID=${apiKey}&units=metric`;
+    const response = await fetch(url);
+    const jsonResponse = await response.json();
+    console.log(jsonResponse);
+    CreateUI(jsonResponse)
+}
+
 
 getData();
-    }else{
-        alert('plz enter city name');
-    }
-});
- 
 
 var render = function (template, selector) {
-	var node = document.querySelector(selector);
-	if (!node) return;
-	node.innerHTML = template;
+    var node = document.querySelector(selector);
+    if (!node) return;
+    node.innerHTML = template;
 };
