@@ -1,4 +1,5 @@
+function print(str){
+    console.log(str)
+}
 
-
-
-export default render;
+export {print};
