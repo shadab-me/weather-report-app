@@ -55,7 +55,7 @@ rawCity.addEventListener('keypress', (e) => {
 })
 const getData = async (city = 'delhi') => {
     const apiKey = "8e4bcc04c2bc500c41a818e2f18046e5";
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${city},india&APPID=${apiKey}&units=metric`;
+    const url = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${city},india&APPID=${apiKey}&units=metric`;
     const response = await fetch(url);
     const jsonResponse = await response.json();
     console.log(jsonResponse);
