@@ -44,13 +44,15 @@ search.addEventListener('click', (e) => {
     e.preventDefault();
     let city = rawCity.value;
     getData(city)
+    rawCity.value = ''
 
 });
 
 rawCity.addEventListener('keypress', (e) => {
-    if (e == 'Enter') {
+     if (e.key == 'Enter') {
         let city = rawCity.value;
         getData(city)
+        rawCity.value = ''
     }
 })
 const getData = async (city = 'delhi') => {
