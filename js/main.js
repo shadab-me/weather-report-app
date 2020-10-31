@@ -20,8 +20,9 @@ const search = document.querySelector('#submit');
 
 function CreateUI(jsonResponse) {
     const nameOfCity = `<h3>${jsonResponse.name}, ${jsonResponse.sys.country} Weather</h3>`;
-    console.log(jsonResponse.main.temp.value);
-    const temp = `<h3'><span class = 'text-warning display-2'> ${jsonResponse.main.temp}</span><span>°C</span> </h3>`;
+    console.log(jsonResponse.main.temp)
+    console.log(jsonResponse.main.temp);
+    const temp = `<h3'><span class = 'text-warning display-2'> ${jsonResponse.main.temp.toString().split('.')[0]}</span><span>°C</span> </h3>`;
     const tempMax = `<p>  Temp-max: ${jsonResponse.main.temp_max}</p>`;
     const tempMin = `<p>  Temp-min: ${jsonResponse.main.temp_min}</p>`;
     const des = `<p class = 'text-muted'>${jsonResponse.weather[0].description}</p>`;
