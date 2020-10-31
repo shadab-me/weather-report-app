@@ -1,5 +1,9 @@
-function print(str){
+export function print(str){
     console.log(str)
 }
 
-export {print};
+export var render = function (template, selector) {
+    var node = document.querySelector(selector);
+    if (!node) return;
+    node.innerHTML = template;
+};

@@ -1,27 +1,18 @@
-let locationApiKey = 'e7a2258b738d4445a82928c912da0a47';
-window.addEventListener('load', () => {
-    let long;
-    let lat;
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position => {
-            console.log(position);
-            long = position.coords.longitude;
-            lat = position.coords.latitude;
-            console.log(long, lat)
-            let api_url = `https://api.opencagedata.com/geocode/v1/json?key=${locationApiKey}&q=${lat + ' ' + long}`;
-            fetch(api_url).then(data => data.json()).then(response => getData(response.results[0].components.city))
-        })
-    }
-});
+import {print, render} from './helper.js';
+import {weatherLocation, getData} from  './fetch.js';
 
 
-const rawCity = document.querySelector('#input');
+const cityName = document.querySelector('#input');
 const search = document.querySelector('#submit');
 
-function CreateUI(jsonResponse) {
+window.addEventListener('load', () => {
+       weatherLocation();
+});
+
+export function createUI(jsonResponse) {
     const nameOfCity = `<h3>${jsonResponse.name}, ${jsonResponse.sys.country} Weather</h3>`;
-    console.log(jsonResponse.main.temp)
-    console.log(jsonResponse.main.temp);
+    print(jsonResponse.main.temp)
+    print(jsonResponse.main.temp);
     const temp = `<h3'><span class = 'text-warning display-2'> ${jsonResponse.main.temp.toString().split('.')[0]}</span><span>°C</span> </h3>`;
     const tempMax = `<p>  Temp-max: ${jsonResponse.main.temp_max}</p>`;
     const tempMin = `<p>  Temp-min: ${jsonResponse.main.temp_min}</p>`;
@@ -43,32 +34,17 @@ function CreateUI(jsonResponse) {
 
 search.addEventListener('click', (e) => {
     e.preventDefault();
-    let city = rawCity.value;
+    let city = cityName.value;
     getData(city)
     rawCity.value = ''
 
 });
 
-rawCity.addEventListener('keypress', (e) => {
+cityName.addEventListener('keypress', (e) => {
      if (e.key == 'Enter') {
-        let city = rawCity.value;
+        let city = cityName.value;
         getData(city)
-        rawCity.value = ''
+        cityName.value = ''
     }
 })
-const getData = async (city = 'delhi') => {
-    const apiKey = "8e4bcc04c2bc500c41a818e2f18046e5";
-    const url = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${city},india&APPID=${apiKey}&units=metric`;
-    const response = await fetch(url);
-    const jsonResponse = await response.json();
-    console.log(jsonResponse);
-    CreateUI(jsonResponse);
-}
 
-getData();
-
-var render = function (template, selector) {
-    var node = document.querySelector(selector);
-    if (!node) return;
-    node.innerHTML = template;
-};
